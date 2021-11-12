@@ -136,43 +136,57 @@ chmod 511 clamperl
 cd ..
 
 #3
+#.1 скопировать файл kricketot6 в директорию lab0/aggron3/gorebyss
 cp kricketot6 aggron3/gorebyss/
+#.2 cоздать символическую ссылку для файла hariyama8 с именем lab0/aggron3/empoleonhariyama
 ln -s hariyama8 aggron3/empoleonhariyama
-
-chmod 737 aggron3/gorebyss # helper
-chmod u+r aggron3/empoleon # helper
+#.3 скопировать рекурсивно директорию aggron3 в директорию lab0/aggron3/gorebyss
+chmod 737 aggron3/gorebyss
+chmod u+r aggron3/empoleon
 cp -r -P aggron3 aggron3/gorebyss
-
-chmod 337 aggron3/gorebyss # helper
-chmod u-r aggron3/empoleon # helper
-
+chmod 337 aggron3/gorebyss
+chmod u-r aggron3/empoleon
+#.4 скопировать содержимое файла kricketot6 в новый файл lab0/sudowoodo1/larvitarkricketot
 cat kricketot6>sudowoodo1/larvitarkricketot
-
-chmod u+r ferroseed3 # helper
-chmod u+w krabby8 # helper
+#.5 cоздать жесткую ссылку для файла ferroseed3 с именем lab0/krabby8/hitmontopferroseed
+chmod u+r ferroseed3
+chmod u+w krabby8
 ln ferroseed3 krabby8/hitmontopferroseed
-chmod u-r ferroseed3 # helper
-chmod u-w krabby8 # helper
-
+chmod u-r ferroseed3
+chmod u-w krabby8
+#.6 объеденить содержимое файлов lab0/sudowoodo1/larvitar, lab0/krabby8/toxicroak, в новый файл lab0/hariyama8_58
 cat sudowoodo1/larvitar krabby8/toxicroak > hariyama8_58
+#.7 создать символическую ссылку c именем Copy_56 на директорию krabby8 в каталоге lab0
 ln -s krabby8 Copy_56
 
 #4
 
+#.1 Подсчитать количество символов содержимого файла hariyama8, результат записать в файл в директории /tmp, ошибки доступа перенаправить в файл в директории /tmp
 mkdir tmp
 wc -m hariyama8 1>tmp/info 2>tmp/errors
+#.2 Вывести два последних элемента рекурсивного списка имен и атрибутов файлов в директории lab0, начинающихся на символ 'm', список отсортировать по возрастанию даты доступа к файлу, ошибки доступа не подавлять и не перенаправлять
 ls -Ru | grep "^m" | tail -2
+#.3 Вывести содержимое файлов: tranquill, empoleon, оставить только строки, заканчивающиеся на 'r', добавить вывод ошибок доступа в стандартный поток вывода
 cat aggron3/tranguill aggron3/empoleon 2>&1 | grep "r$"
+#.4 Вывести два первых элемента рекурсивного списка имен и атрибутов файлов в директории lab0, содержащих строку "fe", список отсортировать по возрастанию даты доступа к файлу, подавить вывод ошибок доступа
 ls -Ru 2>/dev/null | grep "fe" | head -2
+#.5 Подсчитать количество символов содержимого файлов в директории sudowoodo1, отсортировать вывод по уменьшению количества, ошибки доступа перенаправить в файл в директории /tmp
 wc -m sudowoodo1/* 2>tmp/errors | sort -r
-ls -Ru | grep "3$" | sort -r
-
+#.6 Рекурсивно вывести содержимое файлов с номерами строк из директории lab0, имя которых заканчивается на '3', строки отсортировать по имени z->a, ошибки доступа не подавлять и не перенаправлять
+chmod u+r `ls -d **/* * | grep "3$"`
+cat -n `ls -d **/* * | grep "3$"` | sort -r
 #5
+#.1 Удалить файл hariyama8
 rm -f hariyama8
+#.2 Удалить файл lab0/sudowoodo1/growlithe
 rm sudowoodo1/growlithe
+#.3 удалить символические ссылки lab0/aggron3/empoleonhariya*
 rm aggron3/empoleonhariyama
-chmod u+w krabby8 # helper
+#.4 удалить жесткие ссылки lab0/krabby8/hitmontopferrose*
+chmod u+w krabby8
 rm -f krabby8/hitmontopferroseed
+#.5 Удалить директорию krabby8
 rm -rf krabby8
-chmod u+r aggron3/gorebyss # helper
+#.6 Удалить директорию lab0/aggron3/gorebyss
+chmod u+r aggron3/gorebyss
 rm -rf aggron3/gorebyss
